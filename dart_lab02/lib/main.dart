@@ -221,13 +221,36 @@
 // }
 
 //Task 6.2
-import 'person.dart';
+// import 'person.dart';
 
-void main() {
-  final person = GreetingPerson('Ali', 'Hussian');
-  person.sayHi();
+// void main() {
+//   final person = GreetingPerson('Ali', 'Hussian');
+//   person.sayHi();
+// }
+
+// // Explain why GreetingPerson can access _firstName and _lastName even though they start with _.
+// // because it is defined in the same library as Person (person_library). 
+
+// Task 7.1 
+class UserProfile {
+  final String name;
+  String? bio;
+
+  UserProfile(this.name, {this.bio});
+
+  String getDisplayBio() {
+    return bio ?? 'No bio provided.';
+  }
 }
 
-// Explain why GreetingPerson can access _firstName and _lastName even though they start with _.
-// because it is defined in the same library as Person (person_library). 
+void main() {
+  final user1 = UserProfile('Ahmed');
+  final user2 = UserProfile('Layla', bio: 'Flutter Developer');
+  final user3 = UserProfile('Naba');
+
+  print(user1.getDisplayBio());
+  print(user2.getDisplayBio());
+  print(user3.getDisplayBio());
+}
+
 
