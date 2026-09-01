@@ -1,12 +1,15 @@
 void main() {
-  var fruitsList = ['apples', 'oranges', 'bananas', 'strawberries'];
-  var grades = {'quiz1': 85, 'quiz2': 92, 'quiz3': 100};
-  var tags = {'dart', 'flutter', 'mobile', 'flutter', 'dart'};
+  List<String> fruitsList = [];
+  List<String> moreFruits = ['grape', 'kiwi', 'mango'];
 
-  print(fruitsList[1]);
-  print(grades['quiz2']);
-  print(tags);
+  List<String> allFruits = [
+    'watermelon',
+    if (fruitsList.isNotEmpty) ...fruitsList,
+    for (var fruit in moreFruits) fruit,
+  ];
+
+  print(allFruits);
 }
 
-//why the duplicate set item is not stored twice?
-//`Set` automatically ensures that all its elements are unique.
+//Explain what the spread operator ... does.
+//The spread operator ... in Dart is used to insert all the elements of a collection into another collection
