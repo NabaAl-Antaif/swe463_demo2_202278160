@@ -1,16 +1,184 @@
-class User {
-  final String username;
-  final String email;
+// Task 1.1
+// void main() {
+//   int age = 22;
+//   double height = 1.60;
+//   bool isStudent = true;
+//   String name = 'Naba';
+//   List<int> scores = [90, 80, 100];
 
-  User(this.username, this.email);
+//   print('$name is $age years old and $height meters tall.');
+//   print('Student: $isStudent');
+//   print('Scores: $scores');
+// }
+
+// Task 1.2
+// void main() {
+//   var city = 'Qatif';
+//   print('City: $city');
+// }
+
+// Task 2.1
+// final String courseName = 'Mobile App Development';
+// const double pi = 3.14159;
+
+//   dynamic anything = 'I can be any type!';
+//   //courseName = 'Web Development'; 
+//   // When trying to change the value of a final variable, it will throw an error message"Can't assign to the final variable 'courseName'."
+
+//   //pi = 3.14;
+//   // When trying to change the value of a const variable, it will throw an error message"Can't assign to the const variable 'pi'."
+//   print(courseName);
+//   print(pi);
+//   print(anything);
+
+//   anything = 42;
+//   print(anything);
+// }
+
+// //What is the difference between final and const?
+// //Final variables is declared at runtime. while const variables is declared at compile time. 
+
+// //Why can dynamic change from String to int?
+// //The dynamic type allows a variable to hold values of any type, and its type can change at runtime based on the assigned value.
+
+
+// Task 3.1
+// void greet(String name, String greeting) { //This function use positional parameters
+//   print('$greeting, $name!');
+// }
+
+// void greetWelcome(String name, [String greeting = 'Welcome']) { //This function use one optional positional parameter, greeting, with a default value of 'Welcome'
+//   print('$greeting, $name!');
+// }
+
+
+// void greetAgain({required String name, String? greeting}) { //This function use named parameters
+//   print('${greeting ?? 'Hi'}, $name!');
+// }
+
+// void main() {
+//   greet('Naba', 'Hello');
+//   greet('Fatimah', 'Good morning');
+//   greetWelcome('Naba');
+//   greetWelcome('Naba', 'Good morning');
+//   greetWelcome('Fatimah', 'Good night');
+//   greetAgain(name: 'Naba', greeting: 'Hello');
+//   greetAgain(name: 'Naba');
+//   greetAgain(name: 'Zainab', greeting: 'Hi');
+// }
+
+// Task 3.1
+// void performOperation(
+//   int a,
+//   int b,
+//   int Function(int, int) operation,
+// ) {
+//   print(operation(a, b));
+// }
+
+// int add(int a, int b) => a + b;
+// int subtract(int a, int b) => a - b;
+// int multiply(int a, int b) => a * b;
+
+// void main() {
+//   performOperation(10, 5, add);
+//   performOperation(10, 5, subtract);
+//   performOperation(10, 5, multiply);
+// }
+
+// Task 4.1
+// void main() {
+//   var fruitsList = ['apples', 'oranges', 'bananas', 'strawberries'];
+//   var grades = {'quiz1': 85, 'quiz2': 92, 'quiz3': 100};
+//   var tags = {'dart', 'flutter', 'mobile', 'flutter', 'dart'};
+
+//   print(fruitsList[1]);
+//   print(grades['quiz2']);
+//   print(tags);
+// }
+
+// //why the duplicate set item is not stored twice?
+// //`Set` automatically ensures that all its elements are unique.
+
+//Task 4.2
+// void main() {
+//   List<String> fruitsList = [];
+//   List<String> moreFruits = ['grape', 'kiwi', 'mango'];
+
+//   List<String> allFruits = [
+//     'watermelon',
+//     if (fruitsList.isNotEmpty) ...fruitsList,
+//     for (var fruit in moreFruits) fruit,
+//   ];
+
+//   print(allFruits);
+// }
+//Explain what the spread operator ... does.
+//The spread operator ... in Dart is used to insert all the elements of a collection into another collection
+
+//Task 5.1
+// class User {
+//   final String username;
+//   final String email;
+
+//   User(this.username, this.email);
+// }
+
+// void main() {
+//   var user = User('ali_ux', 'ali@email.com');
+//   var myUser = User('naba', 'nabaa@gmail.com');
+
+//   print(user.username);
+//   print(user.email);
+//   print(myUser.username);
+//   print(myUser.email);
+// }
+
+//Task 5.2
+abstract class Post {
+  final String author;
+  Post(this.author);
+  void render();
+}
+
+class TextPost extends Post {
+  final String text;
+  TextPost(String author, this.text) : super(author);
+
+  @override
+  void render() {
+    print('Text post by $author: "$text"');
+  }
+}
+
+class ImagePost extends Post {
+  final String imageUrl;
+  ImagePost(String author, this.imageUrl) : super(author);
+
+  @override
+  void render() {
+    print('Image post by $author at $imageUrl');
+  }
+}
+
+class VideoPost extends Post {
+  final String videoUrl;
+  VideoPost(String author, this.videoUrl) : super(author);
+
+  @override
+  void render() {
+    print('Video post by $author at $videoUrl');
+  }
 }
 
 void main() {
-  var user = User('ali_ux', 'ali@email.com');
-  var myUser = User('naba', 'nabaa@gmail.com');
+  List<Post> feed = [
+    TextPost('khalid', 'Flutter is amazing!'),
+    ImagePost('omar', 'https://example.com/sunset.png'),
+    VideoPost('naba', 'https://example.com/snow.mp4'),
+  ];
 
-  print(user.username);
-  print(user.email);
-  print(myUser.username);
-  print(myUser.email);
+  for (final post in feed) {
+    post.render();
+  }
 }
