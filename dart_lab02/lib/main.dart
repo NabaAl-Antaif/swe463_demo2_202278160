@@ -184,26 +184,39 @@
 // }
 
 //Task 5.3
-class Animal {
-  void makeSound() {
-    print('Some generic sound');
-  }
-}
+// class Animal {
+//   void makeSound() {
+//     print('Some generic sound');
+//   }
+// }
 
-mixin Swimmer {
-  void swim() {
-    print('I can swim!');
-  }
-}
+// mixin Swimmer {
+//   void swim() {
+//     print('I can swim!');
+//   }
+// }
 
-class Dolphin extends Animal with Swimmer {}
-class Duck extends Animal with Swimmer {}
+// class Dolphin extends Animal with Swimmer {}
+// class Duck extends Animal with Swimmer {}
+
+// void main() {
+//   final dolphin = Dolphin();
+//   dolphin.swim();
+//   dolphin.makeSound();
+//   final duck = Duck();
+//   duck.swim();
+//   duck.makeSound();
+// }
+
+// Task 6.1
+import 'person.dart';
 
 void main() {
-  final dolphin = Dolphin();
-  dolphin.swim();
-  dolphin.makeSound();
-  final duck = Duck();
-  duck.swim();
-  duck.makeSound();
+  final person = Person('Osama', 'Ali');
+  print(person.greet());
+
+  // The following line causes a compile-time error because
+  //_firstName is private to person.dart's library.
+  //print(person._firstName);
 }
+
