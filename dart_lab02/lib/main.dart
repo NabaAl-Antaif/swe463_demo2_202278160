@@ -1,15 +1,16 @@
-void main() {
-  List<String> fruitsList = [];
-  List<String> moreFruits = ['grape', 'kiwi', 'mango'];
+class User {
+  final String username;
+  final String email;
 
-  List<String> allFruits = [
-    'watermelon',
-    if (fruitsList.isNotEmpty) ...fruitsList,
-    for (var fruit in moreFruits) fruit,
-  ];
-
-  print(allFruits);
+  User(this.username, this.email);
 }
 
-//Explain what the spread operator ... does.
-//The spread operator ... in Dart is used to insert all the elements of a collection into another collection
+void main() {
+  var user = User('ali_ux', 'ali@email.com');
+  var myUser = User('naba', 'nabaa@gmail.com');
+
+  print(user.username);
+  print(user.email);
+  print(myUser.username);
+  print(myUser.email);
+}
