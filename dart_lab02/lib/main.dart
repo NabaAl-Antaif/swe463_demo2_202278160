@@ -209,14 +209,25 @@
 // }
 
 // Task 6.1
+// import 'person.dart';
+
+// void main() {
+//   final person = Person('Osama', 'Ali');
+//   print(person.greet());
+
+//   // The following line causes a compile-time error because
+//   //_firstName is private to person.dart's library.
+//   //print(person._firstName);
+// }
+
+//Task 6.2
 import 'person.dart';
 
 void main() {
-  final person = Person('Osama', 'Ali');
-  print(person.greet());
-
-  // The following line causes a compile-time error because
-  //_firstName is private to person.dart's library.
-  //print(person._firstName);
+  final person = GreetingPerson('Ali', 'Hussian');
+  person.sayHi();
 }
+
+// Explain why GreetingPerson can access _firstName and _lastName even though they start with _.
+// because it is defined in the same library as Person (person_library). 
 
