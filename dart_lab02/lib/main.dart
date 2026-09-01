@@ -1,17 +1,12 @@
-void performOperation(
-  int a,
-  int b,
-  int Function(int, int) operation,
-) {
-  print(operation(a, b));
-}
-
-int add(int a, int b) => a + b;
-int subtract(int a, int b) => a - b;
-int multiply(int a, int b) => a * b;
-
 void main() {
-  performOperation(10, 5, add);
-  performOperation(10, 5, subtract);
-  performOperation(10, 5, multiply);
+  var fruitsList = ['apples', 'oranges', 'bananas', 'strawberries'];
+  var grades = {'quiz1': 85, 'quiz2': 92, 'quiz3': 100};
+  var tags = {'dart', 'flutter', 'mobile', 'flutter', 'dart'};
+
+  print(fruitsList[1]);
+  print(grades['quiz2']);
+  print(tags);
 }
+
+//why the duplicate set item is not stored twice?
+//`Set` automatically ensures that all its elements are unique.
