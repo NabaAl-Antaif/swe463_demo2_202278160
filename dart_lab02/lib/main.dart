@@ -1,23 +1,22 @@
-void main() {
-  final String courseName = 'Mobile App Development';
-  const double pi = 3.14159;
-
-  dynamic anything = 'I can be any type!';
-  //courseName = 'Web Development'; 
-  // When trying to change the value of a final variable, it will throw an error message"Can't assign to the final variable 'courseName'."
-
-  //pi = 3.14;
-  // When trying to change the value of a const variable, it will throw an error message"Can't assign to the const variable 'pi'."
-  print(courseName);
-  print(pi);
-  print(anything);
-
-  anything = 42;
-  print(anything);
+void greet(String name, String greeting) { //This function use positional parameters
+  print('$greeting, $name!');
 }
 
-//What is the difference between final and const?
-//Final variables is declared at runtime. while const variables is declared at compile time. 
+void greetWelcome(String name, [String greeting = 'Welcome']) { //This function use one optional positional parameter, greeting, with a default value of 'Welcome'
+  print('$greeting, $name!');
+}
 
-//Why can dynamic change from String to int?
-//The dynamic type allows a variable to hold values of any type, and its type can change at runtime based on the assigned value.
+void greetAgain({required String name, String? greeting}) { //This function use named parameters
+  print('${greeting ?? 'Hi'}, $name!');
+}
+
+void main() {
+  greet('Naba', 'Hello');
+  greet('Fatimah', 'Good morning');
+  greetWelcome('Naba');
+  greetWelcome('Naba', 'Good morning');
+  greetWelcome('Fatimah', 'Good night');
+  greetAgain(name: 'Naba', greeting: 'Hello');
+  greetAgain(name: 'Naba');
+  greetAgain(name: 'Zainab', greeting: 'Hi');
+}
